@@ -1,9 +1,9 @@
 # Installation de pfSense
 
 ## Prérequis matériels
-
 Avant de commencer l'installation de pfSense, assurez-vous d'avoir le matériel suivant :
-- Un ordinateur ou un serveur avec au moins deux interfaces réseau (une pour le WAN et une pour le LAN)
+
+- Un ordinateur, un serveur, ou une machine virtuelle avec au moins deux interfaces réseau (une pour le WAN et une pour le LAN)
 - Un processeur compatible avec l'architecture x86-64
 - Au moins 1 Go de RAM (2 Go ou plus recommandés)
 - Au moins 4 Go d'espace disque (8 Go ou plus recommandés)
@@ -25,8 +25,10 @@ Avant de commencer l'installation de pfSense, assurez-vous d'avoir le matériel 
 
 1. Si vous avez téléchargé l'image USB, utilisez un outil comme Rufus pour créer une clé USB bootable.
 2. Si vous avez téléchargé l'image CD, gravez l'image sur un CD/DVD.
-
-![Création du support d'installation](../images/pfsense_usb_creation.png)
+3. Si vous utilisez une machine virtuelle, créez une nouvelle machine virtuelle avec les paramètres suivants :
+    - Type de système d'exploitation : BSD
+    - Version : FreeBSD (64-bit)
+    - Montez l'image d'installation téléchargée comme lecteur CD/DVD virtuel
 
 ### 3. Démarrage à partir du support d'installation
 
@@ -38,39 +40,29 @@ Avant de commencer l'installation de pfSense, assurez-vous d'avoir le matériel 
 
 ### 4. Installation de pfSense
 
-1. Une fois que l'ordinateur a démarré à partir du support d'installation, vous verrez l'écran de bienvenue de pfSense.
-2. Sélectionnez "Install" pour commencer l'installation.
-
+1. Une fois que l'ordinateur a démarré à partir du support d'installation, vous verrez l'écran de copyright de pfSense.
+2. Appuyez sur "Enter" pour continuer.
+![Écran de copyright de pfSense](../images/pfsense_copyright.png)
+3. Vous verrez ensuite l'écran de bienvenue de pfSense. Sélectionnez "Install" pour commencer l'installation.
 ![Écran de bienvenue de pfSense](../images/pfsense_welcome.png)
-
-3. Suivez les instructions à l'écran pour configurer les paramètres de base (langue, disposition du clavier, etc.).
-4. Sélectionnez le disque sur lequel vous souhaitez installer pfSense.
-5. Choisissez le type de partitionnement (généralement "Auto (UFS)" pour une installation standard).
-6. Confirmez les paramètres et lancez l'installation.
-
-![Installation de pfSense](../images/pfsense_installation.png)
+4. Suivez les instructions à l'écran pour configurer les paramètres de base (langue, disposition du clavier, etc.).
+5. Vous serez ensuite invité à choisir le type de système de fichiers. Sélectionnez "ZFS" pour bénéficier des fonctionnalités avancées de ce système de fichiers.
+![Écran de système fichier de pfSense](../images/pfsense_zfs.png)
+6. Sélectionnez le disque sur lequel vous souhaitez installer pfSense.
+![Écran de choix disk](../images/pfsense_zfs_disk_select.png)
+7. Sélectionnez le type de disque (RAID, Stripe, Mirror).
+![Écran de type (raid, stripe, mirror) disk](../images/pfsense_zfs_disk_type.png)
+8. Confirmez la sélection du disque.
+![Écran de confirmation disk](../images/pfsense_zfs_disk_confirm.png)
+9. Confirmez l'installation de ZFS.
+![Écran de confirmation zfs](../images/pfsense_zfs_install.png)
+10. L'installation de pfSense commence. Patientez pendant le processus.
+![Installation de pfSense progrès](../images/pfsense_progress.png)
+11. Une fois l'installation terminée, vous verrez l'écran de fin d'installation.
+![Installation de pfSense fin](../images/pfsense_complete.png)
 
 ### 5. Configuration initiale
 
-1. Une fois l'installation terminée, redémarrez l'ordinateur.
-2. Retirez le support d'installation (clé USB ou CD/DVD).
-3. Lors du premier démarrage, vous serez invité à configurer les interfaces réseau (WAN et LAN).
-4. Suivez les instructions à l'écran pour attribuer les interfaces et configurer les paramètres réseau de base.
-
-![Configuration initiale de pfSense](../images/pfsense_initial_setup.png)
-
-### 6. Accès à l'interface web
-
-1. Une fois la configuration initiale terminée, connectez un ordinateur au port LAN de pfSense.
-2. Ouvrez un navigateur web et accédez à l'adresse IP du LAN (par défaut, [http://192.168.1.1](http://192.168.1.1)).
-3. Connectez-vous à l'interface web avec les identifiants par défaut (utilisateur : admin, mot de passe : pfsense).
-
-![Accès à l'interface web de pfSense](../images/pfsense_web_interface.png)
-
-4. Changez le mot de passe par défaut et configurez les paramètres supplémentaires selon vos besoins.
-
-![Changement du mot de passe par défaut](../images/pfsense_change_password.png)
-
-## Conclusion
-
-Vous avez maintenant installé et configuré pfSense sur votre matériel. Vous pouvez commencer à configurer des règles de pare-feu, des VPN, et d'autres fonctionnalités avancées selon vos besoins.
+1. Retirez le support d'installation (clé USB ou CD/DVD).
+2. Lors du premier démarrage, vous serez invité à configurer les interfaces réseau (WAN et LAN).
+3. Procéder au guide de configuration.

@@ -10,6 +10,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants :
 - Une installation fonctionnelle de pfSense
 - Deux interfaces réseau configurées (WAN et LAN)
 - Les informations de configuration du réseau distant
+- 
 
 ## Étapes de configuration
 
