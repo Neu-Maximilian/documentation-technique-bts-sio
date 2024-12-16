@@ -10,7 +10,6 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants :
 - Une installation fonctionnelle de pfSense
 - Deux interfaces réseau configurées (WAN et LAN)
 - Les informations de configuration du réseau distant
-- 
 
 ## Étapes de configuration
 
@@ -19,43 +18,62 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants :
 1. Ouvrez un navigateur web et accédez à l'adresse IP du LAN de pfSense (par défaut, [http://192.168.1.1](http://192.168.1.1)).
 2. Connectez-vous à l'interface web avec vos identifiants administrateur.
 
-![Accès à l'interface web de pfSense](../images/pfsense_web_interface.png)
+![Accès à l'interface web de pfSense](../images/pfsense_web_login.png)
 
 ### 2. Configurer la phase 1 de l'IPsec
 
-1. Allez dans `VPN` > `IPsec` > `Tunnels` et cliquez sur `Add P1`.
-2. Configurez les paramètres de la phase 1 comme suit :
-   - **Key Exchange version** : IKEv2
-   - **Internet Protocol** : IPv4
-   - **Interface** : WAN
-   - **Remote Gateway** : Adresse IP du réseau distant
-   - **Authentication Method** : Mutual PSK
-   - **Pre-Shared Key** : Clé partagée entre les deux sites
-   - **Encryption Algorithm** : AES
-   - **Hash Algorithm** : SHA256
-   - **DH Group** : 14
-   - **Lifetime** : 28800
+1. Allez dans `VPN` > `IPsec` > `Tunnels` et cliquez sur le bouton `Add P1` pour ajouter une nouvelle phase 1.
 
-![Configuration de la phase 1 de l'IPsec](../images/pfsense_ipsec_phase1.png)
+![Fenêtre configuration ipsec](../images/pfsense_ipsec_phase1.png)
 
-3. Cliquez sur `Save` pour enregistrer les paramètres.
+2. Dans la section **General Information**, configurez les paramètres suivants :
+   - **Key Exchange version** : sélectionnez `IKEv2`.
+   - **Internet Protocol** : choisissez `IPv4`.
+   - **Interface** : sélectionnez `WAN`.
+   - **Remote Gateway** : entrez l'adresse IP du réseau distant (par exemple, `203.0.113.1`).
+
+![Configuration de la phase 1 de l'IPsec](../images/pfsense_ipsec_phase1_1.png)
+
+3. Dans la section **Authentication**, configurez les paramètres suivants :
+   - **Authentication Method** : choisissez `Mutual PSK`.
+   - **Pre-Shared Key** : entrez la clé pré-partagée convenue avec l'administrateur du réseau distant.
+   - Dans **My Identifier** et **Peer Identifier**, choisissez `My IP Address` et `Peer IP Address` respectivement.
+
+4. Dans la section **Phase 1 Proposal (Authentication)**, configurez les paramètres suivants :
+   - **Encryption Algorithm** : sélectionnez `AES` avec une clé de `256 bits`.
+   - **Hash Algorithm** : choisissez `SHA256`.
+   - **DH Group** : sélectionnez le groupe `14` (2048 bits pour une sécurité renforcée).
+
+5. Dans la section **Expiration and Replacement**, configurez les paramètres suivants :
+   - **Life Time** : entrez `28800` (8 heures) pour la durée de vie de la phase 1.
+
+![Configuration de la phase 1 de l'IPsec](../images/pfsense_ipsec_phase1_2.png)
+
+6. Dans la section **Advanced Options**, configurez les paramètres suivants :
+   - **NAT Traversal** : Auto.
+   - **Dead Peer Detection** : cochez la case pour activer la détection des pairs morts.
+
+![Configuration de la phase 1 de l'IPsec](../images/pfsense_ipsec_phase1_3.png)
+
+7. Laissez les autres paramètres par défaut sauf si vous avez des exigences spécifiques. Cliquez sur `Save` pour enregistrer les paramètres de la phase 1.
+
+![Configuration de la phase 1 de l'IPsec](../images/pfsense_ipsec_phase1_4.png)
 
 ### 3. Configurer la phase 2 de l'IPsec
 
 1. Après avoir enregistré la phase 1, cliquez sur `Add P2` pour configurer la phase 2.
-2. Configurez les paramètres de la phase 2 comme suit :
-   - **Mode** : Tunnel IPv4
-   - **Local Network** : Réseau local (ex. 192.168.1.0/24)
-   - **Remote Network** : Réseau distant (ex. 192.168.2.0/24)
-   - **Protocol** : ESP
-   - **Encryption Algorithms** : AES
-   - **Hash Algorithms** : SHA256
-   - **PFS Key Group** : 14
-   - **Lifetime** : 3600
+2. Dans la section **General Information**, configurez les paramètres suivants :
+   - **Description** : entrez un nom descriptif pour la phase 2.
+   - **Mode** : choisissez `Tunnel IPv4`.
+3. Dans la section **Networks**, configurez les paramètres suivants :
+   - **Local Network** : choisissez le réseau local (LAN) de votre pfSense.
+   - **Remote Network** : entrez le réseau distant avec lequel vous souhaitez établir la connexion (par exemple, `192.168.200.0/24`).
+   - **NAT/BINAT Translation** : laissez les paramètres par défaut.
 
-![Configuration de la phase 2 de l'IPsec](../images/pfsense_ipsec_phase2.png)
+![Configuration de la phase 2 de l'IPsec](../images/pfsense_ipsec_phase2_1.png)
 
-3. Cliquez sur `Save` pour enregistrer les paramètres.
+4. 
+
 
 ### 4. Activer le tunnel IPsec
 

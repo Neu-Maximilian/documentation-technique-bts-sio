@@ -64,5 +64,4 @@ Avant de commencer l'installation de pfSense, assurez-vous d'avoir le matériel 
 ### 5. Configuration initiale
 
 1. Retirez le support d'installation (clé USB ou CD/DVD).
-2. Lors du premier démarrage, vous serez invité à configurer les interfaces réseau (WAN et LAN).
-3. Procéder au guide de configuration.
+2. Procéder au guide de configuration.

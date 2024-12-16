@@ -21,7 +21,7 @@
 
 ## Utilisation de l'assistant de configuration
 
-1. Accédez à l'interface web de pfSense en entrant l'adresse IP de l'interface LAN dans un navigateur web (par exemple, http://192.168.1.1).
+1. Accédez à l'interface web de pfSense en entrant l'adresse IP de l'interface LAN dans un navigateur web (par exemple, http://192.168.100.1).
 2. Connectez-vous avec les identifiants par défaut :
     - Nom d'utilisateur : admin
     - Mot de passe : pfsense
@@ -81,3 +81,29 @@
 ![Finalisation](../images/pfsense_finish.png)
 
 Votre pfSense est maintenant configuré et prêt à être utilisé.
+
+## Note sur les configurations
+
+Dans le cadre de ce projet, les configurations sont les suivantes pour le site de Strasbourg :
+
+- **Nom d'hôte** : RTE-STG01
+- **Domaine** : cci-campus.lan
+- **Serveurs DNS** : 8.8.8.8, 8.8.4.4
+- **Adresse IP LAN** : 192.168.100.254
+- **Masque de sous-réseau LAN** : 24 (255.255.255.0)
+- **Identifiants** :
+      - Nom d'utilisateur : admin
+      - Mot de passe : P@ssword10
+
+Et pour le site de Mulhouse :
+
+- **Nom d'hôte** : RTE-MUL01
+- **Domaine** : cci-campus.lan
+- **Serveurs DNS** : 8.8.8.8, 8.8.4.4
+- **Adresse IP LAN** : 192.168.200.254
+- **Masque de sous-réseau LAN** : 24 (255.255.255.0)
+- **Identifiants** :
+      - Nom d'utilisateur : admin
+      - Mot de passe : P@ssword10
+
+Assurez-vous de remplacer ces valeurs par celles qui sont appropriées pour votre environnement spécifique si nécessaire.
