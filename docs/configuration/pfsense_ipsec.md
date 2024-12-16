@@ -72,7 +72,19 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants :
 
 ![Configuration de la phase 2 de l'IPsec](../images/pfsense_ipsec_phase2_1.png)
 
-4. 
+4. Dans la section **Phase 2 Proposal (SA/Key Exchange)**, configurez les paramètres suivants par défaut :
+   - **Protocol** : ESP
+   - **Encryption Algorithms** : AES (128 bits)
+   - **Hash Algorithms** : SHA1
+   - **PFS Key Group** : 14 (2048 bits)
+
+![Configuration de la phase 2 de l'IPsec](../images/pfsense_ipsec_phase2_2.png)
+
+5. Dans la section **Keep Alive**, configurez les paramètres suivants :
+   - **Enable Keep Alive** : cochez la case pour activer le Keep Alive. Cela permet de maintenir le tunnel actif en envoyant périodiquement des paquets de contrôle.
+6. Cliquez sur `Save` pour enregistrer les paramètres de la phase 2.
+
+![Configuration du Keep Alive de la phase 2 de l'IPsec](../images/pfsense_ipsec_phase2_3.png)
 
 
 ### 4. Activer le tunnel IPsec
@@ -80,7 +92,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants :
 1. Retournez à la page `Tunnels` et assurez-vous que le tunnel est activé.
 2. Cliquez sur `Apply Changes` pour appliquer les modifications.
 
-![Activation du tunnel IPsec](../images/pfsense_ipsec_apply.png)
+![Activation du tunnel IPsec](../images/pfsense_ipsec_apply_changes.png)
 
 ### 5. Vérifier l'état du tunnel
 
@@ -104,6 +116,21 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants :
 
 ![Outils de diagnostic IPsec](../images/pfsense_ipsec_diagnostics.png)
 
-## Conclusion
 
-Vous avez maintenant configuré un VPN IPsec sur pfSense. Ce tunnel sécurisé permet de connecter deux réseaux distants de manière sécurisée. N'oubliez pas de surveiller régulièrement l'état du tunnel et de consulter les journaux en cas de problème.
+## Note sur les configurations
+
+Dans le cadre de ce projet, les configurations sont les suivantes pour le site de Strasbourg :
+
+- **Adresse IP du réseau distant** : `192.168.0.200`
+- **Réseau local** : `192.168.100.0/24`
+- **Réseau distant** : `192.168.200.0/24`
+- **Clé pré-partagée** : `Password10`
+
+Et pour le site de Mulhouse :
+
+- **Adresse IP du réseau distant** : `192.168.0.2`
+- **Réseau local** : `192.168.200.0/24`
+- **Réseau distant** : `192.168.100.0/24`
+- **Clé pré-partagée** : `Password10`
+
+Assurez-vous de remplacer ces valeurs par celles qui sont appropriées pour votre environnement spécifique si nécessaire.
