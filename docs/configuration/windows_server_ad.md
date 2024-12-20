@@ -70,6 +70,27 @@ Avant de commencer la configuration d'Active Directory, assurez-vous d'avoir les
 3. Entrez un nom pour l'unité d'organisation et cliquez sur "OK".
 4. Vous pouvez maintenant déplacer des utilisateurs et des groupes dans cette unité d'organisation en les faisant glisser et en les déposant.
 
+### 6. Ajout d'un contrôleur de domaine supplémentaire à la forêt (HA)
+
+1. Connectez-vous au serveur Windows Server que vous souhaitez ajouter comme contrôleur de domaine supplémentaire.
+2. Installez le rôle AD DS comme indiqué dans la section 1.
+3. Une fois l'installation terminée, cliquez sur "Promouvoir ce serveur en contrôleur de domaine".
+   ![Promotion en contrôleur de domaine](../images/windows-adds/windows_server_adds_ha_config_depl.png)
+4. Sélectionnez "Ajouter un contrôleur de domaine à un domaine existant".
+   ![Sélectionner l'option pour un domaine existant](../images/windows-adds/windows_server_adds_ha_config_option_domain.png)
+5. Connectez-vous avec les informations d'identification d'administrateur du domaine.
+   ![Entrée des informations d'identification](../images/windows-adds/windows_server_adds_ha_config_enter_pass.png)
+6. Sélectionnez le domaine cible dans la forêt.
+   ![Sélection du domaine](../images/windows-adds/windows_server_adds_ha_config_select_domain.png)
+7. Configurez les options supplémentaires, telles que la copie des services DNS.
+   ![Configuration des options supplémentaires](../images/windows-adds/windows_server_adds_ha_config_option_supl.png)
+8. Spécifiez les chemins d'accès pour les fichiers AD DS (base de données, journaux et SYSVOL).
+   ![Spécification des chemins d'accès](../images/windows-adds/windows_server_adds_ha_config_path.png)
+9. Examinez et confirmez les options de configuration.
+   ![Confirmation des options](../images/windows-adds/windows_server_adds_ha_config_confirm.png)
+10. Cliquez sur "Installer" et patientez jusqu'à la fin de l'installation. Le serveur redémarrera si nécessaire.
+    ![Redémarrage du serveur](../images/windows-adds/windows_server_adds_ha_config_restart.png)
+
 ## Dépannage
 
 ### Problèmes courants et solutions
@@ -85,4 +106,5 @@ Avant de commencer la configuration d'Active Directory, assurez-vous d'avoir les
 
 ## Conclusion
 
-Vous avez maintenant configuré Active Directory sur Windows Server. Vous pouvez commencer à gérer les utilisateurs, les groupes et les unités d'organisation selon vos besoins.
+Vous avez maintenant configuré Active Directory sur Windows Server. Vous pouvez commencer à gérer les utilisateurs, les groupes et les unités d'organisation selon vos besoins, ainsi que configurer un contrôleur de domaine supplémentaire pour une haute disponibilité.
+
