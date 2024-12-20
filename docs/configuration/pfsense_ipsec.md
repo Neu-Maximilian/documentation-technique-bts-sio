@@ -18,13 +18,13 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants :
 1. Ouvrez un navigateur web et accédez à l'adresse IP du LAN de pfSense (par défaut, [http://192.168.1.1](http://192.168.1.1)).
 2. Connectez-vous à l'interface web avec vos identifiants administrateur.
 
-![Accès à l'interface web de pfSense](../images/pfsense_web_login.png)
+![Accès à l'interface web de pfSense](../images/pfsense/pfsense_web_login.png)
 
 ### 2. Configurer la phase 1 de l'IPsec
 
 1. Allez dans `VPN` > `IPsec` > `Tunnels` et cliquez sur le bouton `Add P1` pour ajouter une nouvelle phase 1.
 
-![Fenêtre configuration ipsec](../images/pfsense_ipsec_phase1.png)
+![Fenêtre configuration ipsec](../images/pfsense/pfsense_ipsec_phase1.png)
 
 2. Dans la section **General Information**, configurez les paramètres suivants :
    - **Key Exchange version** : sélectionnez `IKEv2`.
@@ -32,7 +32,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants :
    - **Interface** : sélectionnez `WAN`.
    - **Remote Gateway** : entrez l'adresse IP du réseau distant (par exemple, `203.0.113.1`).
 
-![Configuration de la phase 1 de l'IPsec](../images/pfsense_ipsec_phase1_1.png)
+![Configuration de la phase 1 de l'IPsec](../images/pfsense/pfsense_ipsec_phase1_1.png)
 
 3. Dans la section **Authentication**, configurez les paramètres suivants :
    - **Authentication Method** : choisissez `Mutual PSK`.
@@ -47,17 +47,17 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants :
 5. Dans la section **Expiration and Replacement**, configurez les paramètres suivants :
    - **Life Time** : entrez `28800` (8 heures) pour la durée de vie de la phase 1.
 
-![Configuration de la phase 1 de l'IPsec](../images/pfsense_ipsec_phase1_2.png)
+![Configuration de la phase 1 de l'IPsec](../images/pfsense/pfsense_ipsec_phase1_2.png)
 
 6. Dans la section **Advanced Options**, configurez les paramètres suivants :
    - **NAT Traversal** : Auto.
    - **Dead Peer Detection** : cochez la case pour activer la détection des pairs morts.
 
-![Configuration de la phase 1 de l'IPsec](../images/pfsense_ipsec_phase1_3.png)
+![Configuration de la phase 1 de l'IPsec](../images/pfsense/pfsense_ipsec_phase1_3.png)
 
 7. Laissez les autres paramètres par défaut sauf si vous avez des exigences spécifiques. Cliquez sur `Save` pour enregistrer les paramètres de la phase 1.
 
-![Configuration de la phase 1 de l'IPsec](../images/pfsense_ipsec_phase1_4.png)
+![Configuration de la phase 1 de l'IPsec](../images/pfsense/pfsense_ipsec_phase1_4.png)
 
 ### 3. Configurer la phase 2 de l'IPsec
 
@@ -70,7 +70,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants :
    - **Remote Network** : entrez le réseau distant avec lequel vous souhaitez établir la connexion (par exemple, `192.168.200.0/24`).
    - **NAT/BINAT Translation** : laissez les paramètres par défaut.
 
-![Configuration de la phase 2 de l'IPsec](../images/pfsense_ipsec_phase2_1.png)
+![Configuration de la phase 2 de l'IPsec](../images/pfsense/pfsense_ipsec_phase2_1.png)
 
 4. Dans la section **Phase 2 Proposal (SA/Key Exchange)**, configurez les paramètres suivants par défaut :
    - **Protocol** : ESP
@@ -78,13 +78,13 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants :
    - **Hash Algorithms** : SHA1
    - **PFS Key Group** : 14 (2048 bits)
 
-![Configuration de la phase 2 de l'IPsec](../images/pfsense_ipsec_phase2_2.png)
+![Configuration de la phase 2 de l'IPsec](../images/pfsense/pfsense_ipsec_phase2_2.png)
 
 5. Dans la section **Keep Alive**, configurez les paramètres suivants :
    - **Enable Keep Alive** : cochez la case pour activer le Keep Alive. Cela permet de maintenir le tunnel actif en envoyant périodiquement des paquets de contrôle.
 6. Cliquez sur `Save` pour enregistrer les paramètres de la phase 2.
 
-![Configuration du Keep Alive de la phase 2 de l'IPsec](../images/pfsense_ipsec_phase2_3.png)
+![Configuration du Keep Alive de la phase 2 de l'IPsec](../images/pfsense/pfsense_ipsec_phase2_3.png)
 
 
 ### 4. Activer le tunnel IPsec
@@ -92,14 +92,14 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants :
 1. Retournez à la page `Tunnels` et assurez-vous que le tunnel est activé.
 2. Cliquez sur `Apply Changes` pour appliquer les modifications.
 
-![Activation du tunnel IPsec](../images/pfsense_ipsec_apply_changes.png)
+![Activation du tunnel IPsec](../images/pfsense/pfsense_ipsec_apply_changes.png)
 
 ### 5. Vérifier l'état du tunnel
 
 1. Allez dans `Status` > `IPsec` pour vérifier l'état du tunnel.
 2. Assurez-vous que le tunnel est `Established` et que les paquets sont transmis.
 
-![Vérification de l'état du tunnel IPsec](../images/pfsense_ipsec_status.png)
+![Vérification de l'état du tunnel IPsec](../images/pfsense/pfsense_ipsec_status.png)
 
 ## Dépannage
 
@@ -114,7 +114,7 @@ Avant de commencer, assurez-vous d'avoir les éléments suivants :
 - **Logs IPsec** : Allez dans `Status` > `System Logs` > `IPsec` pour consulter les journaux et identifier les problèmes.
 - **Ping** : Utilisez l'outil `Ping` dans `Diagnostics` > `Ping` pour tester la connectivité entre les réseaux locaux et distants.
 
-![Outils de diagnostic IPsec](../images/pfsense_ipsec_diagnostics.png)
+![Outils de diagnostic IPsec](../images/pfsense/pfsense_ipsec_diagnostics.png)
 
 
 ## Note sur les configurations

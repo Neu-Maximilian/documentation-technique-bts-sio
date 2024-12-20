@@ -19,7 +19,7 @@ Avant de commencer l'installation de pfSense, assurez-vous d'avoir le matériel 
 4. Sélectionnez le type d'installation (USB Memstick Installer ou CD Image).
 5. Téléchargez l'image d'installation.
 
-![Téléchargement de l'image d'installation](../images/pfsense_download.png)
+![Téléchargement de l'image d'installation](../images/pfsense/pfsense_download.png)
 
 ### 2. Création du support d'installation
 
@@ -36,30 +36,30 @@ Avant de commencer l'installation de pfSense, assurez-vous d'avoir le matériel 
 2. Démarrez l'ordinateur et accédez au menu de démarrage (généralement en appuyant sur une touche comme F12, F2, ou ESC).
 3. Sélectionnez le support d'installation (USB ou CD/DVD) comme périphérique de démarrage.
 
-![Démarrage à partir du support d'installation](../images/pfsense_boot_menu.png)
+![Démarrage à partir du support d'installation](../images/pfsense/pfsense_boot_menu.png)
 
 ### 4. Installation de pfSense
 
 1. Une fois que l'ordinateur a démarré à partir du support d'installation, vous verrez l'écran de copyright de pfSense.
 2. Appuyez sur "Enter" pour continuer.
-![Écran de copyright de pfSense](../images/pfsense_copyright.png)
+![Écran de copyright de pfSense](../images/pfsense/pfsense_copyright.png)
 3. Vous verrez ensuite l'écran de bienvenue de pfSense. Sélectionnez "Install" pour commencer l'installation.
-![Écran de bienvenue de pfSense](../images/pfsense_welcome.png)
+![Écran de bienvenue de pfSense](../images/pfsense/pfsense_welcome.png)
 4. Suivez les instructions à l'écran pour configurer les paramètres de base (langue, disposition du clavier, etc.).
 5. Vous serez ensuite invité à choisir le type de système de fichiers. Sélectionnez "ZFS" pour bénéficier des fonctionnalités avancées de ce système de fichiers.
-![Écran de système fichier de pfSense](../images/pfsense_zfs.png)
+![Écran de système fichier de pfSense](../images/pfsense/pfsense_zfs.png)
 6. Sélectionnez le disque sur lequel vous souhaitez installer pfSense.
-![Écran de choix disk](../images/pfsense_zfs_disk_select.png)
+![Écran de choix disk](../images/pfsense/pfsense_zfs_disk_select.png)
 7. Sélectionnez le type de disque (RAID, Stripe, Mirror).
-![Écran de type (raid, stripe, mirror) disk](../images/pfsense_zfs_disk_type.png)
+![Écran de type (raid, stripe, mirror) disk](../images/pfsense/pfsense_zfs_disk_type.png)
 8. Confirmez la sélection du disque.
-![Écran de confirmation disk](../images/pfsense_zfs_disk_confirm.png)
+![Écran de confirmation disk](../images/pfsense/pfsense_zfs_disk_confirm.png)
 9. Confirmez l'installation de ZFS.
-![Écran de confirmation zfs](../images/pfsense_zfs_install.png)
+![Écran de confirmation zfs](../images/pfsense/pfsense_zfs_install.png)
 10. L'installation de pfSense commence. Patientez pendant le processus.
-![Installation de pfSense progrès](../images/pfsense_progress.png)
+![Installation de pfSense progrès](../images/pfsense/pfsense_progress.png)
 11. Une fois l'installation terminée, vous verrez l'écran de fin d'installation.
-![Installation de pfSense fin](../images/pfsense_complete.png)
+![Installation de pfSense fin](../images/pfsense/pfsense_complete.png)
 
 ### 5. Configuration initiale
 
